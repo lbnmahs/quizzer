@@ -20,7 +20,7 @@ class _QuizScreen extends State<QuizScreen> {
           end: Alignment.bottomRight
         )
       ),
-      child: const Center(child: Text('Your Question')),
+      child: const Center(child: Text('Your Question'))
     );
   }
 }
