@@ -10,7 +10,7 @@ class StartScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [ Colors.deepOrange, Colors.deepPurple ],
+          colors: [ Colors.cyan, Colors.blueAccent ],
           begin: Alignment.topLeft,
           end:  Alignment.bottomRight
         )
@@ -46,8 +46,8 @@ class StartScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: startQuiz,
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                backgroundColor: Colors.orangeAccent,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                backgroundColor: Color.fromARGB(255, 224, 145, 41),
                 foregroundColor: Colors.white,
                 textStyle: const TextStyle(
                   color: Colors.white,
