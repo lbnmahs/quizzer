@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quizzer/data/questions.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  const QuizScreen(this.onAnswerSelect, {super.key});
+
+  final void Function(String answer) onAnswerSelect;
 
   @override
   State<QuizScreen> createState() {
@@ -11,9 +13,16 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreen extends State<QuizScreen> {
-  var currentQuestion = questions[0];
+  var currentQuestionIndex = 0;
+
+  void answerSelect(String answer) {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
   @override
   Widget build(context) {
+    var currentQuestion = questions[currentQuestionIndex];
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -39,7 +48,12 @@ class _QuizScreen extends State<QuizScreen> {
             ),
             const SizedBox(height: 30,),
             ...currentQuestion.answers.map((answer){
-              return AnswerButton(answer, (){});
+              return AnswerButton(
+                answer, 
+                (){
+                  answerSelect(answer);
+                }
+              );
             })
           ],
         )
