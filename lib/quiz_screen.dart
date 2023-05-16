@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizzer/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen(this.onAnswerSelect, {super.key});
@@ -39,7 +40,7 @@ class _QuizScreen extends State<QuizScreen> {
           children: [
             Text(
               currentQuestion.question,
-              style: const TextStyle(
+              style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w700
