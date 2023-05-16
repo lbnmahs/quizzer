@@ -17,6 +17,7 @@ class _QuizScreen extends State<QuizScreen> {
   var currentQuestionIndex = 0;
 
   void answerSelect(String answer) {
+    widget.onAnswerSelect(answer);
     setState(() {
       currentQuestionIndex++;
     });
@@ -48,7 +49,7 @@ class _QuizScreen extends State<QuizScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30,),
-            ...currentQuestion.answers.map((answer){
+            ...currentQuestion.getShuffledAnswers().map((answer){
               return AnswerButton(
                 answer, 
                 (){

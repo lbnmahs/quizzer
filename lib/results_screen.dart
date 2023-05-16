@@ -14,7 +14,9 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [],
+          children: const[
+            Text('You have gotten X out of Y questions')
+          ],
         ),
       ),
     );
