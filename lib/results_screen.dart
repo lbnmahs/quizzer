@@ -28,7 +28,7 @@ class ResultsScreen extends StatelessWidget {
     final summaryData = getSummaryAnswers();
     final gottenQuestions = summaryData.where((data) {
       return data['chosen_answer'] == data['correct_answer'];
-    });
+    }).length;
 
     return SizedBox(
       width: double.infinity,
@@ -42,13 +42,33 @@ class ResultsScreen extends StatelessWidget {
               'You have gotten $gottenQuestions out of $totalQuestions questions',
               style: GoogleFonts.montserrat(
                 color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w600
+                fontSize: 18,
+                fontWeight: FontWeight.bold
               ),
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
             QuestionSummary(summaryData),
             const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: (){}, 
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 25, 77, 218),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                )
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.restart_alt_rounded),
+                  SizedBox(width: 5,),
+                  Text('Restart Quiz')
+                ],)
+            )
           ],
         ),
       ),
