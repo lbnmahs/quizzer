@@ -32,6 +32,13 @@ class _Quiz extends State<Quiz> {
     }
   }
 
+  void restartQuiz () {
+    setState(() {
+      allAnswers = [];
+      activeScreen = 'start-screen';
+    });
+  }
+
   @override
   Widget build(context) {
     Widget screenWidget = StartScreen(startQuiz);
@@ -39,7 +46,7 @@ class _Quiz extends State<Quiz> {
       screenWidget = QuizScreen(answerTap);
     }
     if(activeScreen == 'results-screen') {
-      screenWidget = ResultsScreen(allAnswers);
+      screenWidget = ResultsScreen(allAnswers, restartQuiz);
     }
     return Container(
       decoration: const BoxDecoration(
